@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+const order = [100, 200, 300];
 
 function App() {
+  const [count, setCount] = useState(() => {
+    const totalOder = order.reduce(
+      (total, totalCurrent) => total + totalCurrent
+    );
+    return totalOder;
+  });
+
+  //tạo bộ đếm
+  const handleCount = () => {
+    //truyền dưới dạng number
+    //setCount(count + 1)
+
+    // truyền dạng callback
+    setCount((prevCounter) => prevCounter + 1);
+  };
+
+  // - Initial state với callbacks?'
+  //  Tạo thông tin info
+  const [info, setInfo] = useState({
+    name: "Duc Long",
+    age: 22,
+    address: "Thảo điền Quận 2",
+  });
+
+  //update lại thông tin info
+  const handleUpdate = () => {
+    setInfo({
+      ...info,
+      playGame: "Soccer",
+      color: "green",
+    });
+  };
+
+
+  
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ margin: 50 }}>
+      <h1>{JSON.stringify(info)}</h1>
+      <button onClick={handleUpdate}>To Update</button>
+
+      <h2>{count}</h2>
+      <button onClick={handleCount}>Increase</button>
     </div>
   );
 }
