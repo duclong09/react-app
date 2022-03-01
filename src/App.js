@@ -36,11 +36,6 @@ function App() {
     });
   };
 
-
-  
-
-
-
   return (
     <div className="App" style={{ margin: 50 }}>
       <h1>{JSON.stringify(info)}</h1>
