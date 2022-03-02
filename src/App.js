@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { Content } from "./Content";
 
 const order = [100, 200, 300];
 
 function App() {
+
+  const [show,setShow] = useState(false)
   const [count, setCount] = useState(() => {
     const totalOder = order.reduce(
       (total, totalCurrent) => total + totalCurrent
@@ -43,6 +46,11 @@ function App() {
 
       <h2>{count}</h2>
       <button onClick={handleCount}>Increase</button>
+      <div style={{padding: 50}}>
+        <button onClick={()=> setShow(!show)}>Toggle</button>
+        {show && <Content/>}
+      </div>
+     
     </div>
   );
 }
