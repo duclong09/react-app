@@ -9,9 +9,9 @@ import TodoList from './todo-list';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Gift/>
+    {/* <Gift/>
     <Binding/>
-    <TodoList/>
+    <TodoList/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
