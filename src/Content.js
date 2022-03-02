@@ -1,18 +1,33 @@
 import { tab } from "@testing-library/user-event/dist/tab";
 import { useEffect, useState } from "react";
 
-const tabs = ["todos", "comments", "albums","photos","users"]
+const tabs = ["todos", "comments", "albums", "photos", "users"];
 
 export const Content = () => {
-   //cua so trinh duyet:
-   const [width, setWidth] = useState(window.innerWidth)
-
-
+  //cua so trinh duyet:
+  const [width, setWidth] = useState(window.innerWidth);
 
   const [title, setTitle] = useState("");
   const [todos, setTodos] = useState([]);
-  const [type,setType] = useState('todos')
-  const [showGoToTop, setShowGoToTop] = useState(false)
+  const [type, setType] = useState("todos");
+  const [showGoToTop, setShowGoToTop] = useState(false);
+
+  //dem nguoc thoi gian
+  const [countdow, setCountdow] = useState(180);
+  useEffect(()=>{
+    const timerID = setInterval(() => {
+        setCountdow(prev => prev - 1)
+        console.log('Countdow...')
+    }, 1000);
+    // setTimeout(() => {
+    //     setCountdow(countdow - 1)
+       
+    // }, 1000);
+
+    return () => clearInterval(timerID)
+  },[])
+ 
+
   //console.log(type)
 
   useEffect(() => {
@@ -23,54 +38,54 @@ export const Content = () => {
       });
   }, [type]);
 
-
   //Dom event listener
-  useEffect(()=> {
+  useEffect(() => {
     const handleScroll = () => {
-        if(window.scrollY >=200){
-            setShowGoToTop(true)
-            // console.log('set state')
-        }else{
-            setShowGoToTop(false)
-        }
-    }
-    window.addEventListener('scroll', handleScroll)
-    console.log('addEventListener')
+      if (window.scrollY >= 200) {
+        setShowGoToTop(true);
+        // console.log('set state')
+      } else {
+        setShowGoToTop(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    console.log("addEventListener");
     //clean function
 
-    return ()=>{
-        window.removeEventListener('scroll', handleScroll)
-        console.log('removeEventListener')
-    }
-  },[])
-
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      console.log("removeEventListener");
+    };
+  }, []);
 
   useEffect(() => {
-      const handleRisize = ()=>{
-        setWidth(window.innerWidth)
-      }
-    window.addEventListener('resize', handleRisize)
+    const handleRisize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleRisize);
 
     //cleanup func
-    return ()=>{
-        window.removeEventListener('resize', handleRisize)
-    }
-  },[])
-
-
+    return () => {
+      window.removeEventListener("resize", handleRisize);
+    };
+  }, []);
 
   return (
     <div>
       {tabs.map((tab) => (
-        <button 
-            key={tab}
-            style={type === tab ? {
-                color: '#fff',
-                backgroundColor: '#333'
-            }: {}}
-            onClick={() => setType(tab)}
+        <button
+          key={tab}
+          style={
+            type === tab
+              ? {
+                  color: "#fff",
+                  backgroundColor: "#333",
+                }
+              : {}
+          }
+          onClick={() => setType(tab)}
         >
-        {tab}
+          {tab}
         </button>
       ))}
       <input value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -81,21 +96,24 @@ export const Content = () => {
         ))}
       </ul>
       {showGoToTop && (
-          <button style={{
-              position: 'fixed',
-              right: 20,
-              bottom: 20,
-          }}>
-              Go to Top
-          </button>
+        <button
+          style={{
+            position: "fixed",
+            right: 20,
+            bottom: 20,
+          }}
+        >
+          Go to Top
+        </button>
       )}
 
       <div>
-          <h1>{width}</h1>
+        <h1>{width}</h1>
+      </div>
+
+      <div>
+        <h2>{countdow}</h2>
       </div>
     </div>
-
-
-    
   );
 };
