@@ -1,29 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import Binding from './Binding';
-import { FakeChatApp } from './Chat';
-import Gift from './Gift';
-import { OutPutClean } from './Output-Clean';
-import TodoList from './todo-list';
-import { Toggle } from './Toggle';
-
-
-
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import Binding from "./Binding";
+import { FakeChatApp } from "./Chat";
+import Gift from "./Gift";
+import { OutPutClean } from "./Output-Clean";
+import TodoList from "./todo-list";
+import { Toggle } from "./Toggle";
+import { UseRef } from "./useref";
 
 //fake comments
-const emitComment = (id)=>{
+const emitComment = (id) => {
   setInterval(() => {
     window.dispatchEvent(
-      new CustomEvent(`lesson-${id}`,{
-        detail: `Nội dung comment của lesson ${id}`
+      new CustomEvent(`lesson-${id}`, {
+        detail: `Nội dung comment của lesson ${id}`,
       })
-    )
+    );
   }, 1000);
-}
-emitComment(1)
-emitComment(2)
-emitComment(3)
+};
+emitComment(1);
+emitComment(2);
+emitComment(3);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -33,9 +31,8 @@ ReactDOM.render(
     <TodoList/> */}
     {/* <OutPutClean/> */}
     {/* <FakeChatApp/> */}
-  <Toggle/>
-
+    {/* <Toggle/> */}
+    <UseRef/>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
