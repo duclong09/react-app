@@ -4,6 +4,7 @@ import App from "./App";
 import Binding from "./Binding";
 import { FakeChatApp } from "./Chat";
 import Gift from "./Gift";
+import { HookMemo } from "./hooks-memo";
 import { UseCallBack } from "./main-callback-hooks";
 import { OutPutClean } from "./Output-Clean";
 import TodoList from "./todo-list";
@@ -34,7 +35,8 @@ ReactDOM.render(
     {/* <FakeChatApp/> */}
     {/* <Toggle/> */}
     {/* <UseRef/> */}
-    <UseCallBack/>
+    {/* <UseCallBack/> */}
+    <HookMemo/>
   </React.StrictMode>,
   document.getElementById("root")
 );
