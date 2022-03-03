@@ -3,16 +3,12 @@
 import { useRef, useState, useEffect} from "react"
 
 
-
-
-
-
 export function UseRef(){
     const [count,setCount] = useState(60)
 
    
     const timerID = useRef()
-    const prevCount = useRef()
+    const prevCount = useRef()  
     const h1Ref = useRef()
 
     useEffect(()=>{
