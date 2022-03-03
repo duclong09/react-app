@@ -15,10 +15,10 @@ export const CleanUp = () =>{
         if(!file) return
         file.preview = URL.createObjectURL(file)
         setAvatar(file)
+        e.target.value = null
+        console.log(123)
     }
 
-    
-  
     return(
 
         <div>
