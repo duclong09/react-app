@@ -6,6 +6,7 @@ import { FakeChatApp } from './Chat';
 import Gift from './Gift';
 import { OutPutClean } from './Output-Clean';
 import TodoList from './todo-list';
+import { Toggle } from './Toggle';
 
 
 
@@ -31,7 +32,9 @@ ReactDOM.render(
     <Binding/>
     <TodoList/> */}
     {/* <OutPutClean/> */}
-    <FakeChatApp/>
+    {/* <FakeChatApp/> */}
+  <Toggle/>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
