@@ -8,11 +8,14 @@ import { UseReducer } from "./Hook-usereducer";
 import { HookMemo } from "./hooks-memo";
 import { UseCallBack } from "./main-callback-hooks";
 import { OutPutClean } from "./Output-Clean";
+import { ThemeProvider } from "./ThemeContext";
 import TodoReducer from "./todo-app-list-reducer";
 
 import TodoList from "./todo-list";
 import { Toggle } from "./Toggle";
+import { UseConTex } from "./Usecontext";
 import { UseRef } from "./useref";
+
 
 //fake comments
 const emitComment = (id) => {
@@ -41,7 +44,11 @@ ReactDOM.render(
     {/* <UseCallBack/> */}
     {/* <HookMemo/> */}
     {/* <UseReducer/> */}
-    <TodoReducer/>
+    {/* <TodoReducer/> */}
+
+   <ThemeProvider>
+      <UseConTex/>
+   </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
