@@ -8,7 +8,8 @@ import { UseReducer } from "./Hook-usereducer";
 import { HookMemo } from "./hooks-memo";
 import { UseCallBack } from "./main-callback-hooks";
 import { OutPutClean } from "./Output-Clean";
-import { TodoReducer } from "./todo-app-list-reducer";
+import TodoReducer from "./todo-app-list-reducer";
+
 import TodoList from "./todo-list";
 import { Toggle } from "./Toggle";
 import { UseRef } from "./useref";
