@@ -4,9 +4,11 @@ import App from "./App";
 import Binding from "./Binding";
 import { FakeChatApp } from "./Chat";
 import Gift from "./Gift";
+import { UseReducer } from "./Hook-usereducer";
 import { HookMemo } from "./hooks-memo";
 import { UseCallBack } from "./main-callback-hooks";
 import { OutPutClean } from "./Output-Clean";
+import { TodoReducer } from "./todo-app-list-reducer";
 import TodoList from "./todo-list";
 import { Toggle } from "./Toggle";
 import { UseRef } from "./useref";
@@ -36,7 +38,9 @@ ReactDOM.render(
     {/* <Toggle/> */}
     {/* <UseRef/> */}
     {/* <UseCallBack/> */}
-    <HookMemo/>
+    {/* <HookMemo/> */}
+    {/* <UseReducer/> */}
+    <TodoReducer/>
   </React.StrictMode>,
   document.getElementById("root")
 );
