@@ -4,6 +4,7 @@ import App from "./App";
 import Binding from "./Binding";
 import { FakeChatApp } from "./Chat";
 import Gift from "./Gift";
+import { GlobaState } from "./GlobalContext-usereducer";
 import { UseReducer } from "./Hook-usereducer";
 import { HookMemo } from "./hooks-memo";
 import { UseCallBack } from "./main-callback-hooks";
@@ -15,8 +16,7 @@ import TodoList from "./todo-list";
 import { Toggle } from "./Toggle";
 import { UseConTex } from "./Usecontext";
 import { UseRef } from "./useref";
-
-
+import {StoreProvider} from "./store";
 //fake comments
 const emitComment = (id) => {
   setInterval(() => {
@@ -46,9 +46,14 @@ ReactDOM.render(
     {/* <UseReducer/> */}
     {/* <TodoReducer/> */}
 
-   <ThemeProvider>
+   {/* <ThemeProvider>
       <UseConTex/>
-   </ThemeProvider>
+   </ThemeProvider> */}
+
+  <StoreProvider>
+    <GlobaState/>
+  </StoreProvider>
+
   </React.StrictMode>,
   document.getElementById("root")
 );
